@@ -36,17 +36,25 @@
           return React.DOM.p(null, message);
         }
       });
-      /*
-      ?
-            // @outcome: returns #of elapsed seconds
-            // @how: ??
-            // @question: is ```{this.props.elapsed}```  a property of current time?
-            // @question: What is this if then statement saying?
-            // @question: are ```/``` or ```%``` a javascript method?
-      */
+          /*
+          ?
+                @outcome: returns #of elapsed seconds
+                @how: ??
+                @outcome: is ```{this.props.elapsed}``` is a property of the current time defined inside ```ReactDom.render```.
+                @question: What is this code line doing? ```var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );```
+                @question: are ```/``` or ```%``` a javascript method?
+                @question: ```return React.DOM.p(null, message);``` Here we are injecting a string stored in ```message```. ```React.DOM.p``` is a method for paragraphs?
+                @question: ```null``` will be returned by ```return React.DOM.p(null, message)``` when message has not beed defined or if ```React.createClass.render``` is not called. Can ```React.createClass.render``` be called but ```var message``` not defined?
+          */
 
       // Call React.createFactory instead of directly call ExampleApplication({...}) in React.render
       var ExampleApplicationFactory = React.createFactory(ExampleApplication);
+          /*
+            @outcome:  ```React.createFactory``` wraps a function inside another.
+            @question: why use factories?
+            @answer: factories organize functions inside one another by type.
+            @question: What advantages does this wrapper provide? In this example maybe its just cleaner?
+          */
 
       var start = new Date().getTime();
       setInterval(function() {
@@ -55,6 +63,15 @@
           document.getElementById('container')
         );
       }, 50);
+
+      /*
+        @outcome: function takes current time minus start time. Start time triggers when script is called.
+        @advice: read ```ReactDOM.render``` and work recursively from there.
+        @question: what does ```ExampleAplicationFactory``` accomplish inside of the ```ReactDom.render ```
+        @answer:
+        @question: How do we set this function to be called repeatingly?
+      */
+
     </script>
   </body>
 </html>
