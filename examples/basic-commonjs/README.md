@@ -7,3 +7,8 @@ npm start
 ```
 
 to produce `bundle.js` with example code and React.
+
+
+## QUESTIONS
+
+Is ```index.js``` linked into ```index.html```?

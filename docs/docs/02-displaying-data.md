@@ -122,3 +122,44 @@ var root = React.DOM.ul({ className: 'my-list' },
              React.DOM.li(null, 'Text Content')
            );
 ```
+
+
+
+
+-----
+id: 02-displaying-data
+title: Questions Around 'Displaying Data'
+-----
+@Question: How do a React component know to update local and remote data?
+@Answer: Data input is stored in it's React component root, as an attribute of ```this.props```. React compares the component's local attributes against the clients until a change is recognized.
+@Clarity: Browser DOM and React DOM are seperate. React compares the two for variance, then updates the two. Browser DOM is what we see. ReactDOM exists at the host server and manages DB.
+
+@Question: What are React components?
+@Answer: React's components are simple functions. With ```this.props``` (data values) and ```this.state``` (behavior).
+
+@Clarity: Compontes are rendered into the DOM. Only one root can be rendered, but many components can be wrapped inside of the root.
+
+@Question: Why does React use components vs "templates" or "display logic"? Explain each's structure, advantages, and disadvantages?
+@Answer: Display logic is complicated. If, thens create a dependency web which get tangled.
+@Answer: Templates are rigid. The layers are dependent on each other in often unforseen ways. This requries a deep knowledge of the templates.
+@Answer: Components are great, as the markup and rending are tied together (interdependent). HTML is generated from the JS code, in order to utalize the expresive power of a real programming language  to build UIs.
+
+@Question: Why use JSX?
+@Answer: To create JS objects with HTML syntax!
+@Example: ```React.createElement('a', {href: 'https://facebook.github.io/react/'}, 'Hello!')``` With JSX this becomes: ```<a href="https://facebook.github.io/react/">Hello!</a>```
+
+@Question: What is the structure for creating a React element in plain JavaScript?
+@Answer: React elements in plain JavaScript using `React.createElement`, which takes a tag name or component, a properties object, and variable number of optional child arguments.
+@Challenge: In plain JavaScript, inject ```<ul id="my-list"><li>One</li><li>Two</li></ul>``` into ```<div id="example"/>```
+@Solution:
+  ```javascript
+  var child1 = React.createElement('li', null, 'First Text Content');
+  var child2 = React.createElement('li', null, 'Second Text Content');
+  var root = React.createElement('ul', { className: 'my-list' }, child1, child2);
+  ReactDOM.render(root, document.getElementById('example'));
+  ```
+  var componentName = React.createElement(*component*, *{properties}*, *child arguements or content*);
+-----
+
+
+@Question:

@@ -52,3 +52,38 @@
     </script>
   </body>
 </html>
+
+<!--
+
+@Description:
+We are injecting a button with a click behavior and a variable count.
+The button ```<Counter />``` is enhanced with the click behavior ```handleClick``` which is a function incrementing the variable ```count```.
+```this.setState({...})``` is a method to incrementally increase ```this.state.count```.
+```onClick={this.handleClick}``` is a method inherited from React to trigger function: ```this.handClick```
+
+@Question: List two methods to save a variable:
+@Answer: ```return { count : 0 }; ``` ```this.setStates({ count: this.state.count +1, })
+
+@Question: Should ```handleClick``` function close its count value with a comma? ```this.setState({ count: this.state.count + 1, });```
+
+@Question: What is the difference between ```return ( )``` and ```return { }```
+@Answer: ```return ( )``` is JSX, which will be converted into JS.
+@Question: Which functions are written in JSX?
+@Answer: ```render```, ```ReactDOM```
+
+@Question: Can I write
+```
+handleClick: function () {
+  this.setState({
+    count: this.state.count + 1,
+  });
+},
+```
+Like this:
+```
+handleClick: function () {
+  return { count: this.state.count + 1 };
+},
+```
+
+-->
